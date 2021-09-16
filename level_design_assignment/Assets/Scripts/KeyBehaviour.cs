@@ -16,8 +16,7 @@ public class KeyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        keyTransform.Rotate(keyTransform.up, );
-        
+        keyTransform.Rotate(Vector3.forward, RotateSpeed * Time.deltaTime);
         if (trackedTransform != null)
         {
             keyTransform.position = trackedTransform.position + Vector3.up;
