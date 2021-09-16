@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float JumpHeight;
 
-    private int count = 0;
     private Rigidbody rb;
     private float movementX;
     private float movementY;
@@ -42,7 +41,6 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.CompareTag("PickUp"))
         {
             other.gameObject.SetActive(false);
-            count++;
         }
     }
 

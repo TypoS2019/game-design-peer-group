@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class KeyBehaviour : MonoBehaviour
 {
-    [SerializeField] private DoorBehaviour DoorBehaviour;
-
+    [SerializeField] private float RotateSpeed;
     private Transform trackedTransform;
     private Transform keyTransform;
     
@@ -17,12 +16,17 @@ public class KeyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        keyTransform.position = trackedTransform.position + Vector3.up;
+        keyTransform.Rotate(keyTransform.up, );
+        
+        if (trackedTransform != null)
+        {
+            keyTransform.position = trackedTransform.position + Vector3.up;
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("player"))
+        if (other.CompareTag("Player"))
         {
             trackedTransform = other.transform;
         }
