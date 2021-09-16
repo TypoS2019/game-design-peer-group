@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float JumpHeight;
 
+    private bool AirJumpStatus;
+    
     private Rigidbody rb;
     private float movementX;
     private float movementY;
@@ -31,17 +33,25 @@ public class PlayerController : MonoBehaviour
 
     void OnJump()
     {
-        Vector3 Jump = new Vector3(0.0f, JumpHeight, 0.0f);
-        rb.AddForce(Jump, ForceMode.Impulse);
-        Debug.Log("Jump");
-    }
+        RaycastHit hit;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("PickUp"))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.0f))
         {
-            other.gameObject.SetActive(false);
+            AirJumpStatus = true;
+            Vector3 Jump = new Vector3(0.0f, JumpHeight, 0.0f);
+            rb.AddForce(Jump, ForceMode.Impulse);
         }
+        else if(AirJumpStatus == true)
+        {
+            AirJumpStatus = false;
+            Vector3 Jump = new Vector3(0.0f, JumpHeight, 0.0f);
+            rb.AddForce(Jump, ForceMode.Impulse);
+        }
+        else
+        {
+            //Debug.Log("Unable to jump");
+        }
+        //Debug.DrawRay(transform.position, Vector3.down, Color.red, 0.3f, true);
     }
 
     void FixedUpdate()
