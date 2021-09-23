@@ -4875,9 +4875,17 @@ PrefabInstance:
       value: Tree 1 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 4030267795990161742, guid: 05e9ce3a1c81a234685fe7b88a3a9367, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030267795990161742, guid: 05e9ce3a1c81a234685fe7b88a3a9367, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d57f34cdf1854cf43bd5c86d37a1bbe0, type: 2}
+    - target: {fileID: 8905619880207168143, guid: 05e9ce3a1c81a234685fe7b88a3a9367, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05e9ce3a1c81a234685fe7b88a3a9367, type: 3}
 --- !u!43 &538572985
@@ -7600,6 +7608,25 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &712952918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3237700301886523547, guid: 05e9ce3a1c81a234685fe7b88a3a9367, type: 3}
+  m_PrefabInstance: {fileID: 516713719}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &712952923
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712952918}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5076798556035486163, guid: 230e07295fc1b9a4facadb0d1b3b2679, type: 3}
 --- !u!43 &716671709
 Mesh:
   m_ObjectHideFlags: 0
