@@ -30,6 +30,7 @@ public class MonsterBehaviour : MonoBehaviour
             }
             yield return null;
         }
+        yield break;
     }
 
     private IEnumerator Corrupt()
@@ -65,5 +66,6 @@ public class MonsterBehaviour : MonoBehaviour
         }
 
         StartCoroutine(Walk());
+        yield break;
     }
 }
