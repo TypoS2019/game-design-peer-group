@@ -8,25 +8,33 @@ public class PlantBehaviour : MonoBehaviour
 
     [SerializeField] private Material aliveMaterial;
     [SerializeField] private Material deadMaterial;
+    [SerializeField] private GameObject leaves;
+    
+    private MeshRenderer meshRenderer;
 
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        meshRenderer = GetComponent<MeshRenderer>();
+        Corrupt();
     }
 
     public void Corrupt()
     {
         dead = true;
+        if (leaves != null)
+        {
+            leaves.SetActive(false);
+        }
+        meshRenderer.material = deadMaterial;
     }
 
     public void UnCorrupt()
     {
         dead = false;
+        if (leaves != null)
+        {
+            leaves.SetActive(true);
+        }
+        meshRenderer.material = aliveMaterial;
     }
 }
