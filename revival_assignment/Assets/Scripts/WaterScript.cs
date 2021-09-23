@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu]
 
-public class Water : ScriptableObject
+public class WaterScript : ScriptableObject
 {
     public float WaterAmount;
     public float WateringCanCapacity;

@@ -31,7 +31,6 @@ public class LightScriptableObject : MonoBehaviour
                 targetRotation += rotationStep;
             }
         }
-        Debug.Log(targetRotation);
         lightTransform.rotation = Quaternion.Slerp(lightTransform.rotation, Quaternion.Euler(targetRotation, 0, 0), 1 * Time.deltaTime);
     }
 }

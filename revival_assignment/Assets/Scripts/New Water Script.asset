@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d639f6d6130d3b4a9b50f5da7b2e7a6, type: 3}
-  m_Name: WaterScriptObject
+  m_Script: {fileID: 11500000, guid: 94d385f880daf0e449e83716d3c6264c, type: 3}
+  m_Name: New Water Script
   m_EditorClassIdentifier: 
-  WaterAmount: 0
+  WaterAmount: 20
   WateringCanCapacity: 30
