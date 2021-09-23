@@ -50,7 +50,7 @@ public class MonsterBehaviour : MonoBehaviour
             float closestDistance = 0;
             foreach (var plant in plantBehaviours)
             {
-                if (!plant.corrupted)
+                if (!plant.dead)
                 {
                     float distance = Vector2.Distance(plant.transform.position, monsterTransform.position);
                     if (closestAlivePlant == null || closestDistance > distance)

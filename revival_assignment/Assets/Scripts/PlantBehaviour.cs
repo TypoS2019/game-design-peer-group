@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlantBehaviour : MonoBehaviour
 {
-    public bool corrupted;
-    
-    // Start is called before the first frame update
+    public bool dead;
+
+    [SerializeField] private Material aliveMaterial;
+    [SerializeField] private Material deadMaterial;
+
     void Start()
     {
         
@@ -20,11 +22,11 @@ public class PlantBehaviour : MonoBehaviour
 
     public void Corrupt()
     {
-        corrupted = true;
+        dead = true;
     }
 
     public void UnCorrupt()
     {
-        corrupted = false;
+        dead = false;
     }
 }
