@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class CharacterController : MonoBehaviour
 {
@@ -9,7 +8,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float JumpHeight;
     [SerializeField] private float RotationSpeed;
 
-    private Rigidbody rb;
+    protected Rigidbody rb;
     private float rotation;
     private float movementZ;
     private float DistanceToGround;
@@ -24,7 +23,7 @@ public class CharacterController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void Jump()
+    protected void Jump()
     {
         if (isGrounded)
         {
@@ -38,7 +37,7 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    private void Move(float movementZ, float rotation)
+    protected void Move(float movementZ, float rotation)
     {
         deltaPostition = (transform.forward * movementZ) * Speed * Time.deltaTime;
         transform.Translate(deltaPostition, Space.World);
