@@ -31,11 +31,13 @@ public class PlayerController : CharacterController
 
     void OnFire()
     {
+        Debug.Log("Fire!");
         ActivationPillarBehaviour[] pillars = FindObjectsOfType<ActivationPillarBehaviour>();
         foreach (var pillar in pillars)
         {
             if (Vector3.Distance(pillar.transform.position, transform.position) <= interactionDistance)
             {
+                Debug.Log("pilalr in range");
                 pillar.Activate();
             }
         }

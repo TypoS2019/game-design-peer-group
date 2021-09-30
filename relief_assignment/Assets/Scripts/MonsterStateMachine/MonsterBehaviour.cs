@@ -11,10 +11,12 @@ public class MonsterBehaviour : MonoBehaviour
     [SerializeField] private float movementSpeed;
     [SerializeField] private float rotateSpeed;
     [SerializeField] private float minAttackTime;
-    private Rigidbody rb;
 
+    private Rigidbody rb;
+    AudioSource audioData;
     private void Awake()
     {
+        audioData = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -27,7 +29,6 @@ public class MonsterBehaviour : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("chasing");
             if (target != null)
             {
                 RotateTowardsTarget();
@@ -46,10 +47,10 @@ public class MonsterBehaviour : MonoBehaviour
 
     IEnumerator Attacking()
     {
+        audioData!.Play();
         float attackTime = 0;
         while (true)
         {
-            Debug.Log("attacking");
             attackTime += Time.deltaTime;
             if (attackTime >= minAttackTime)
             {
