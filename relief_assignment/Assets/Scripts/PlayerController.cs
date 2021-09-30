@@ -5,9 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : CharacterController
 {
-    [SerializeField] private float Speed;
-    [SerializeField] private float JumpHeight;
-    [SerializeField] private float RotationSpeed;
     [SerializeField] private float interactionDistance;
     
     private float rotation;
