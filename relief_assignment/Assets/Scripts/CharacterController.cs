@@ -24,19 +24,6 @@ public class CharacterController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void OnMove(InputValue movementValue)
-    {
-        Vector2 movementVector = movementValue.Get<Vector2>();
-
-        rotation = movementVector.x;
-        movementZ = movementVector.y;
-    }
-
-    void OnJump()
-    {
-        Jump();
-    }
-
     void Jump()
     {
         if (isGrounded)
@@ -51,12 +38,7 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        Move();
-    }
-
-    private void Move()
+    private void Move(float movementZ, float rotation)
     {
         deltaPostition = (transform.forward * movementZ) * Speed * Time.deltaTime;
         transform.Translate(deltaPostition, Space.World);
