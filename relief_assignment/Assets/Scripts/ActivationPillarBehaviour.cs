@@ -20,22 +20,22 @@ public class ActivationPillarBehaviour : MonoBehaviour
 
     public void Activate()
     {
-        if (previousPillar.active)
+        if (previousPillar!.active || previousPillar == null)
         {
-            flame.SetActive(true);
+            flame!.SetActive(true);
             active = true;
         }
         else
         {
             OnActivatedIncorrectly!.Invoke();
-            flame.SetActive(false);
+            flame!.SetActive(false);
             active = false;
         }
     }
 
     public void Deactivate()
     {        
-        flame.SetActive(false);
+        flame!.SetActive(false);
         active = false;
     }
 }
