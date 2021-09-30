@@ -10,9 +10,8 @@ public class MonsterBehaviour : MonoBehaviour
     [SerializeField] private float minAttackDistance;
     [SerializeField] private float movementSpeed;
     [SerializeField] private float rotateSpeed;
-
+    [SerializeField] private float minAttackTime;
     private Rigidbody rb;
-    // Start is called before the first frame update
 
     private void Awake()
     {
@@ -28,16 +27,18 @@ public class MonsterBehaviour : MonoBehaviour
     {
         while (true)
         {
-            
-            RotateTowardsTarget();
-            WalkTowardsTarget();
-            
-            if (Vector3.Distance(transform.position, target.transform.position) <= minAttackDistance)
+            Debug.Log("chasing");
+            if (target != null)
             {
-                StartCoroutine(Attacking());
-                yield break;
+                RotateTowardsTarget();
+                WalkTowardsTarget();
+            
+                if (Vector3.Distance(transform.position, target.transform.position) <= minAttackDistance)
+                {
+                    StartCoroutine(Attacking());
+                    yield break;
+                }
             }
-
             yield return null;
         }
         yield break;
@@ -45,14 +46,22 @@ public class MonsterBehaviour : MonoBehaviour
 
     IEnumerator Attacking()
     {
+        float attackTime = 0;
         while (true)
         {
-            //Attack code
-            
-            if (Vector3.Distance(transform.position, target.transform.position) >= minAttackDistance)
+            Debug.Log("attacking");
+            attackTime += Time.deltaTime;
+            if (attackTime >= minAttackTime)
             {
-                StartCoroutine(Chasing());
-                yield break;
+                Destroy(target);
+            }
+            if (target != null)
+            {
+                if (Vector3.Distance(transform.position, target.transform.position) >= minAttackDistance)
+                {
+                    StartCoroutine(Chasing());
+                    yield break;
+                }
             }
             yield return null;
         }

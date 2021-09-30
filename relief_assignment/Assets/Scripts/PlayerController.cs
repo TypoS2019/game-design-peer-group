@@ -8,22 +8,11 @@ public class PlayerController : CharacterController
     [SerializeField] private float Speed;
     [SerializeField] private float JumpHeight;
     [SerializeField] private float RotationSpeed;
-
+    [SerializeField] private float interactionDistance;
+    
     private float rotation;
     private float movementZ;
-    private Rigidbody rb;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     private void FixedUpdate()
     {
@@ -41,5 +30,17 @@ public class PlayerController : CharacterController
     void OnJump()
     {
         Jump();
+    }
+
+    void OnFire()
+    {
+        ActivationPillarBehaviour[] pillars = FindObjectsOfType<ActivationPillarBehaviour>();
+        foreach (var pillar in pillars)
+        {
+            if (Vector3.Distance(pillar.transform.position, transform.position) <= interactionDistance)
+            {
+                pillar.Activate();
+            }
+        }
     }
 }
